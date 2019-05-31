@@ -1,119 +1,160 @@
 var letterO1 = document.querySelector('#o1');
 
-function runAnim (){
-  var animDuration = 1500
-	var translateLetterBY = 10
-	
-	var letterDisapperDur = 300;
-	var circleMove = 300
-	var circleMoveDelayOffset = 30 
-	var circleExpand = 200
+var translateLetterBY = 10
 
-	anime({
+var letterDisapperDur = 300;
+var circleMoveDur = 300
+var circleMoveDelayOffsetDur = 30
+var circleExpandDur = 200
+
+
+const animateSection1 = (isReversed) => {
+ 	anime({
 		targets: '#n1',
-		translateX: -translateLetterBY,
-		opacity: 0,
-		duration: letterDisapperDur/5,
-		delay: letterDisapperDur/5*0,
-		easing: 'linear'
+		translateX: isReversed ? 0 : -translateLetterBY,
+		opacity: isReversed ? 1 : 0,
+		duration: letterDisapperDur / 5,
+		easing: 'linear',
 	});
+}
+
+const animateSection2 = (isReversed) => {
 	anime({
 		targets: '#i2',
-		translateX: -translateLetterBY,
-		opacity:0,
-		duration: letterDisapperDur/5,
-		delay: letterDisapperDur/5*1,
+		translateX: isReversed ? 0 : -translateLetterBY,
+		opacity: isReversed ? 1 : 0,
+		duration: letterDisapperDur / 5,
 		easing: 'linear'
 	});
+}
+const animateSection3 = (isReversed) => {
 	anime({
 		targets: '#g1',
-		translateX: -translateLetterBY,
-		opacity:0,
-		duration: letterDisapperDur/5,
-		delay: letterDisapperDur/5*2,
+		translateX: isReversed ? 0 : -translateLetterBY,
+		opacity: isReversed ? 1 : 0,
+		duration: letterDisapperDur / 5,
 		easing: 'linear'
 	});
+}
+const animateSection4 = (isReversed) => {
 	anime({
 		targets: '#i1',
-		translateX: -translateLetterBY,
-		opacity:0,
-		duration: letterDisapperDur/5,
-		delay: letterDisapperDur/5*3,
+		translateX: isReversed ? 0 : -translateLetterBY,
+		opacity: isReversed ? 1 : 0,
+		duration: letterDisapperDur / 5,
 		easing: 'linear'
 	});
+}
+
+const animateSection5 = (isReversed) => {
 	anime({
 		targets: '#r1',
-		translateX: -translateLetterBY,
-		opacity:0,
-		duration: letterDisapperDur/5,
-		delay: letterDisapperDur/5*4,
+		translateX: isReversed ? 0 : -translateLetterBY,
+		opacity: isReversed ? 1 : 0,
+		duration: letterDisapperDur / 5,
 		easing: 'linear'
 	});
-	anime({
-		targets: '#oGroup',
-		translateX: 40,
-		duration: circleMove,
-		delay: letterDisapperDur - circleMoveDelayOffset,
-		easing: 'easeOutSine'
-	});
+}
 
-	anime({
-		targets: '#oCircle1',
-		r: 15,
-		opacity: 0.7,		
-		duration: circleExpand*2,
-		delay: letterDisapperDur - circleMoveDelayOffset + circleMove,
-		easing: 'easeOutSine'
-	});
-
-	anime({
-		targets: '#oCircle2',
-		r: 20,
-		opacity: 0.4,
-		duration: circleExpand*2,
-		delay: letterDisapperDur - circleMoveDelayOffset + circleMove,
-		easing: 'easeOutSine'
-	});
-
-	anime({
-		targets: '#oCircle3',
-		r: 25,
-		opacity: 0,		
-		duration: circleExpand,
-		delay: letterDisapperDur - circleMoveDelayOffset + circleMove,
-		easing: 'easeOutSine'
-	});
-
-	anime({
-		targets: '#oCircle4',
-		r: [{value: 20, duration: circleExpand-20},
-				{value: 25, duration: circleExpand/2}
+const animateSection6 = (isReversed) => {
+	if(!isReversed){
+		anime({
+			targets: '#oGroup',
+			translateX: [0,40],
+			duration: circleMoveDur,
+			delay: letterDisapperDur - circleMoveDelayOffsetDur,
+			easing: 'easeOutSine'
+		});
+	
+		anime({
+			targets: '#oCircle1',
+			r: [7.1,15],
+			opacity: [1, 0.7],
+			duration: circleExpandDur * 2,
+			delay: letterDisapperDur - circleMoveDelayOffsetDur + circleMoveDur,
+			easing: 'easeOutSine'
+		});
+	
+		anime({
+			targets: '#oCircle2',
+			r: [7.1,20],
+			opacity: [1, 0.4],
+			duration: circleExpandDur * 2,
+			delay: letterDisapperDur - circleMoveDelayOffsetDur + circleMoveDur,
+			easing: 'easeOutSine'
+		});
+	
+		anime({
+			targets: '#oCircle3',
+			r: [7.1,25],
+			opacity: [1, 0],
+			duration: circleExpandDur,
+			delay: letterDisapperDur - circleMoveDelayOffsetDur + circleMoveDur,
+			easing: 'easeOutSine'
+		});
+	
+		anime({
+			targets: '#oCircle4',
+			r: [{ value: 20, duration: circleExpandDur - 20 },
+			{ value: 25, duration: circleExpandDur / 2 }
 			],
-		opacity: [{value: 0.4, duration: circleExpand},
-							{value: 0, duration: circleExpand/2}
-			],		
-		delay: letterDisapperDur - circleMoveDelayOffset + circleMove,
-		easing: 'easeOutSine'
-	});
+			opacity: [{ value: 0.4, duration: circleExpandDur },
+			{ value: 0, duration: circleExpandDur / 2 }
+			],
+			delay: letterDisapperDur - circleMoveDelayOffsetDur + circleMoveDur,
+			easing: 'easeOutSine'
+		});
+	} 
+	else {
+		anime({
+			targets: '#oGroup',
+			translateX: [40,0],
+			duration: circleMoveDur,
+			delay: letterDisapperDur - circleMoveDelayOffsetDur + circleMoveDur,
+			easing: 'easeOutSine'
+		});
+	
+		anime({
+			targets: '#oCircle1',
+			r: [15,7.1],
+			opacity: [0.7, 1],
+			duration: circleExpandDur * 2,
+			delay: letterDisapperDur - circleMoveDelayOffsetDur ,
+			easing: 'easeOutSine'
+		});
+	
+		anime({
+			targets: '#oCircle2',
+			r: [20,7.1],
+			opacity: [0.4, 1],
+			duration: circleExpandDur * 2,
+			delay: letterDisapperDur - circleMoveDelayOffsetDur,
+			easing: 'easeOutSine'
+		});
+	
+		anime({
+			targets: '#oCircle3',
+			r: [25,7.1],
+			opacity: [0, 1],
+			duration: circleExpandDur,
+			delay: letterDisapperDur - circleMoveDelayOffsetDur,
+			easing: 'easeOutSine'
+		});
+	}
+	
 }
 
-setTimeout(runAnim,2000)
+
+animateSection1(false)
+animateSection2(false)
+animateSection3(false)
+animateSection4(false)
+animateSection5(false)
+animateSection6(false)
 
 
 
-function makeCirclePath (cx, cy, r) {
-	console.log(`
-M ${cx} ${cy}
-m -${r}, 0
-a ${r},${r} 0 1,0 ${r*2},0
-a ${r},${r} 0 1,0 -${r*2},0
-`)
-	return `
-	 	M ${cx} ${cy}
-		m -${r}, 0
-		a ${r},${r} 0 1,0 ${r*2},0
-		a ${r},${r} 0 1,0 -${r*2},0
-	`
-}
+setTimeout(function() {
+	animateSection6(true)
+},1000)
 
-// makeCirclePath(9,19, 9)
