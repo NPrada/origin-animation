@@ -1,5 +1,3 @@
-var letterO1 = document.querySelector('#o1');
-
 var translateLetterBY = 10
 
 var letterDisapperDur = 300;
@@ -57,6 +55,7 @@ const animateSection5 = (isReversed) => {
 }
 
 const animateSection6 = (isReversed) => {
+	const initCircleR = 7.1
 	if(!isReversed){
 		anime({
 			targets: '#oGroup',
@@ -68,7 +67,7 @@ const animateSection6 = (isReversed) => {
 	
 		anime({
 			targets: '#oCircle1',
-			r: [7.1,15],
+			r: [initCircleR,15],
 			opacity: [1, 0.7],
 			duration: circleExpandDur * 2,
 			delay: letterDisapperDur - circleMoveDelayOffsetDur + circleMoveDur,
@@ -77,7 +76,7 @@ const animateSection6 = (isReversed) => {
 	
 		anime({
 			targets: '#oCircle2',
-			r: [7.1,20],
+			r: [initCircleR,20],
 			opacity: [1, 0.4],
 			duration: circleExpandDur * 2,
 			delay: letterDisapperDur - circleMoveDelayOffsetDur + circleMoveDur,
@@ -86,7 +85,7 @@ const animateSection6 = (isReversed) => {
 	
 		anime({
 			targets: '#oCircle3',
-			r: [7.1,25],
+			r: [initCircleR,25],
 			opacity: [1, 0],
 			duration: circleExpandDur,
 			delay: letterDisapperDur - circleMoveDelayOffsetDur + circleMoveDur,
@@ -116,7 +115,7 @@ const animateSection6 = (isReversed) => {
 	
 		anime({
 			targets: '#oCircle1',
-			r: [15,7.1],
+			r: [15,initCircleR],
 			opacity: [0.7, 1],
 			duration: circleExpandDur * 2,
 			delay: letterDisapperDur - circleMoveDelayOffsetDur ,
@@ -125,7 +124,7 @@ const animateSection6 = (isReversed) => {
 	
 		anime({
 			targets: '#oCircle2',
-			r: [20,7.1],
+			r: [20,initCircleR],
 			opacity: [0.4, 1],
 			duration: circleExpandDur * 2,
 			delay: letterDisapperDur - circleMoveDelayOffsetDur,
@@ -134,7 +133,7 @@ const animateSection6 = (isReversed) => {
 	
 		anime({
 			targets: '#oCircle3',
-			r: [25,7.1],
+			r: [25,initCircleR],
 			opacity: [0, 1],
 			duration: circleExpandDur,
 			delay: letterDisapperDur - circleMoveDelayOffsetDur,
